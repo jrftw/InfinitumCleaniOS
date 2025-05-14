@@ -1,3 +1,6 @@
+// MARK: - FILE: CallProtectionManager.swift
+// MARK: - Call Blocking & Spam Management Handler
+
 import Foundation
 import CallKit
 import Contacts
@@ -53,19 +56,18 @@ class CallProtectionManager: ObservableObject {
     // MARK: - Call Protection
     
     func enableCallProtection() async throws {
-        // Request contacts access
-        try await requestContactsAccess()
-        
-        // Load blocked numbers
+        let hasAccess = await requestContactsAccess()
+        guard hasAccess else {
+            await MainActor.run {
+                protectionStatus = .error
+            }
+            return
+        }
+
         try await loadBlockedNumbers()
-        
-        // Load spam numbers
         try await loadSpamNumbers()
-        
-        // Update call directory
-        try await updateCallDirectory()
-        
-        // Update published properties on main thread
+        await updateCallDirectory()
+
         await MainActor.run {
             isProtectionEnabled = true
             protectionStatus = .active
@@ -83,13 +85,13 @@ class CallProtectionManager: ObservableObject {
     
     func blockNumber(_ number: String) async throws {
         blockedNumbers.insert(number)
-        try await updateCallDirectory()
+        await updateCallDirectory()
         try await saveBlockedNumbers()
     }
     
     func unblockNumber(_ number: String) async throws {
         blockedNumbers.remove(number)
-        try await updateCallDirectory()
+        await updateCallDirectory()
         try await saveBlockedNumbers()
     }
     
@@ -122,8 +124,7 @@ class CallProtectionManager: ObservableObject {
     func requestContactsAccess() async -> Bool {
         let store = CNContactStore()
         do {
-            let status = try await store.requestAccess(for: .contacts)
-            return status
+            return try await store.requestAccess(for: .contacts)
         } catch {
             print("Error requesting contacts access: \(error)")
             return false
@@ -167,13 +168,9 @@ class CallProtectionManager: ObservableObject {
     func addCallRecord(_ record: CallRecord) {
         Task { @MainActor in
             recentCalls.insert(record, at: 0)
-            
-            // Keep only last 100 calls
             if recentCalls.count > 100 {
                 recentCalls.removeLast()
             }
-            
-            // Save to persistent storage
             saveCallRecords()
         }
     }
@@ -196,18 +193,14 @@ class CallProtectionManager: ObservableObject {
     // MARK: - Spam Detection
     
     func isSpamNumber(_ number: String) async throws -> Bool {
-        // Check local spam list
         if spamNumbers.contains(number) {
             return true
         }
-        
-        // Check online spam database
         return try await checkOnlineSpamDatabase(number)
     }
     
     private func checkOnlineSpamDatabase(_ number: String) async throws -> Bool {
-        // TODO: Implement online spam database check
-        // This would typically involve calling an API to check if the number is known for spam
+        // MARK: TODO - Implement real API call to spam check
         return false
     }
     
@@ -215,53 +208,39 @@ class CallProtectionManager: ObservableObject {
     
     func analyzeCallPatterns() async throws -> [String: Any] {
         var patterns: [String: Any] = [:]
-        
-        // Analyze call frequency
         patterns["callFrequency"] = analyzeCallFrequency()
-        
-        // Analyze call duration
         patterns["callDuration"] = analyzeCallDuration()
-        
-        // Analyze call times
         patterns["callTimes"] = analyzeCallTimes()
-        
         return patterns
     }
     
     private func analyzeCallFrequency() -> [String: Int] {
         var frequency: [String: Int] = [:]
-        
         for call in recentCalls {
             let date = Calendar.current.startOfDay(for: call.timestamp)
             let dateString = DateFormatter.localizedString(from: date, dateStyle: .short, timeStyle: .none)
             frequency[dateString, default: 0] += 1
         }
-        
         return frequency
     }
     
     private func analyzeCallDuration() -> [String: TimeInterval] {
         var duration: [String: TimeInterval] = [:]
-        
         for call in recentCalls {
             let date = Calendar.current.startOfDay(for: call.timestamp)
             let dateString = DateFormatter.localizedString(from: date, dateStyle: .short, timeStyle: .none)
-            // TODO: Add actual call duration calculation
-            duration[dateString, default: 0] += 0
+            duration[dateString, default: 0] += 0 // MARK: Placeholder for duration tracking
         }
-        
         return duration
     }
     
     private func analyzeCallTimes() -> [String: Int] {
         var times: [String: Int] = [:]
-        
         for call in recentCalls {
             let hour = Calendar.current.component(.hour, from: call.timestamp)
             let hourString = String(format: "%02d:00", hour)
             times[hourString, default: 0] += 1
         }
-        
         return times
     }
-} 
+}

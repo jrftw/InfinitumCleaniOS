@@ -2,126 +2,157 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
-	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
-	<key>CFBundlePackageType</key>
-	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
-	<key>CFBundleVersion</key>
-	<string>1</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need access to your photos to help clean up and optimize your storage.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>We need camera access to scan QR codes for security features.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>We need microphone access to monitor audio security.</string>
-	<key>NSContactsUsageDescription</key>
-	<string>We need access to your contacts to protect you from spam calls and manage your call blocking list.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need location access to provide location-based security features.</string>
-	<key>NSFaceIDUsageDescription</key>
-	<string>We use Face ID to secure your app and protect your sensitive data.</string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>Health data access is required for device health monitoring and optimization.</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>Health data update is required for device health monitoring and optimization.</string>
-	<key>NSMotionUsageDescription</key>
-	<string>Motion data is used for device health monitoring and optimization.</string>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Bluetooth access is required for device health monitoring and optimization.</string>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>Bluetooth access is required for device health monitoring and optimization.</string>
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>Local network access is required for network security and optimization features.</string>
-	<key>NSBonjourServices</key>
-	<array>
-		<string>_infinitumclean._tcp</string>
-		<string>_infinitumclean._udp</string>
-	</array>
-	<key>UIApplicationSceneManifest</key>
-	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
-		<key>UISceneConfigurations</key>
-		<dict>
-			<key>UIWindowSceneSessionRoleApplication</key>
-			<array>
-				<dict>
-					<key>UISceneConfigurationName</key>
-					<string>Default Configuration</string>
-					<key>UISceneDelegateClassName</key>
-					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-				</dict>
-			</array>
-		</dict>
-	</dict>
-	<key>UIApplicationSupportsIndirectInputEvents</key>
-	<true/>
-	<key>UILaunchScreen</key>
-	<dict/>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>SKAdNetworkItems</key>
-	<array>
-		<dict>
-			<key>SKAdNetworkIdentifier</key>
-			<string>cstr6suwn9.skadnetwork</string>
-		</dict>
-	</array>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-	<key>GADApplicationIdentifier</key>
-	<string>ca-app-pub-6815311336585204~3615279515</string>
-	<key>GADIsAdManagerApp</key>
-	<true/>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>processing</string>
-	</array>
-	<key>CXCallDirectoryEnabled</key>
-	<true/>
-	<key>CXCallDirectorySupportsDataBlocking</key>
-	<true/>
-	<key>CXCallDirectorySupportsIdentification</key>
-	<true/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<false/>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>googleapis.com</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<false/>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-			</dict>
-		</dict>
-	</dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>$(DEVELOPMENT_LANGUAGE)</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>$(PRODUCT_NAME)</string>
+    <key>CFBundlePackageType</key>
+    <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+
+    <!-- Usage Descriptions -->
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>We need access to your photos to help clean up and optimize your storage.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>We need camera access to scan QR codes for security features.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>We need microphone access to monitor audio security.</string>
+    <key>NSContactsUsageDescription</key>
+    <string>We need access to your contacts to protect you from spam calls and manage your call blocking list.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We need location access to provide location-based security features.</string>
+    <key>NSFaceIDUsageDescription</key>
+    <string>We use Face ID to secure your app and protect your sensitive data.</string>
+    <key>NSHealthShareUsageDescription</key>
+    <string>Health data access is required for device health monitoring and optimization.</string>
+    <key>NSHealthUpdateUsageDescription</key>
+    <string>Health data update is required for device health monitoring and optimization.</string>
+    <key>NSMotionUsageDescription</key>
+    <string>Motion data is used for device health monitoring and optimization.</string>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>Bluetooth access is required for device health monitoring and optimization.</string>
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>Bluetooth access is required for device health monitoring and optimization.</string>
+    <key>NSLocalNetworkUsageDescription</key>
+    <string>Local network access is required for network security and optimization features.</string>
+
+    <!-- Bonjour Services -->
+    <key>NSBonjourServices</key>
+    <array>
+        <string>_infinitumclean._tcp</string>
+        <string>_infinitumclean._udp</string>
+    </array>
+
+    <!-- Scene Manifest -->
+    <key>UIApplicationSceneManifest</key>
+    <dict>
+        <key>UIApplicationSupportsMultipleScenes</key>
+        <false/>
+        <key>UISceneConfigurations</key>
+        <dict>
+            <key>UIWindowSceneSessionRoleApplication</key>
+            <array>
+                <dict>
+                    <key>UISceneConfigurationName</key>
+                    <string>Default Configuration</string>
+                    <key>UISceneDelegateClassName</key>
+                    <string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+                </dict>
+            </array>
+        </dict>
+    </dict>
+
+    <key>UIApplicationSupportsIndirectInputEvents</key>
+    <true/>
+
+    <!-- Launch Screen -->
+    <key>UILaunchScreen</key>
+    <dict/>
+
+    <!-- Device Capabilities -->
+    <key>UIRequiredDeviceCapabilities</key>
+    <array>
+        <string>armv7</string>
+    </array>
+
+    <!-- Orientations -->
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+
+    <!-- SKAdNetwork -->
+    <key>SKAdNetworkItems</key>
+    <array>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>cstr6suwn9.skadnetwork</string>
+        </dict>
+    </array>
+
+    <!-- AdMob -->
+    <key>GADApplicationIdentifier</key>
+    <string>ca-app-pub-6815311336585204~3615279515</string>
+    <key>GADIsAdManagerApp</key>
+    <true/>
+
+    <!-- Background Modes -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>processing</string>
+    </array>
+
+    <!-- Background Task Scheduler Identifiers -->
+    <key>BGTaskSchedulerPermittedIdentifiers</key>
+    <array>
+        <string>com.infinitumclean.backgroundrefresh</string>
+    </array>
+
+    <!-- Call Directory -->
+    <key>CXCallDirectoryEnabled</key>
+    <true/>
+    <key>CXCallDirectorySupportsDataBlocking</key>
+    <true/>
+    <key>CXCallDirectorySupportsIdentification</key>
+    <true/>
+
+    <!-- Transport Security -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <false/>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>googleapis.com</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <false/>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+            </dict>
+        </dict>
+    </dict>
+
+    <!-- Encryption -->
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false/>
 </dict>
 </plist>
