@@ -7,26 +7,44 @@
 
 import SwiftUI
 import SwiftData
+import GoogleMobileAds
 
 @main
 struct Infinitum_CleanApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+    @StateObject private var storeManager = StoreManager.shared
+    @StateObject private var settings = SettingsManager.shared
+    @State private var showAds = true
 
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
+    init() {
+        // Initialize Google Mobile Ads
+        MobileAds.shared.start { status in
+            AppLogger.shared.info("Google Mobile Ads SDK initialized", category: .app)
         }
-    }()
+        
+        // Configure app appearance
+        configureAppearance()
+    }
+    
+    private func configureAppearance() {
+        // Set navigation bar appearance
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(Theme.background)
+        appearance.titleTextAttributes = [.foregroundColor: UIColor(Theme.textPrimary)]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor(Theme.textPrimary)]
+        
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    }
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(showAds: $showAds)
+                .task {
+                    showAds = !(await storeManager.isSubscribed())
+                }
+                .preferredColorScheme(settings.isAutoMode ? nil : (settings.isDarkMode ? .dark : .light))
         }
-        .modelContainer(sharedModelContainer)
     }
 }

@@ -1,0 +1,107 @@
+{
+  "identifier" : "InfinitumCleanStore",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "com.infinitumclean.premium.features",
+      "localizations" : [
+        {
+          "description" : "Unlock all premium features",
+          "displayName" : "Premium Features Pack",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.infinitumclean.premium.features",
+      "referenceName" : "Premium Features",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "com.infinitumclean",
+    "_developerTeamID" : "YOUR_TEAM_ID",
+    "_lastSynchronizedDate" : 710000000.000000000000000
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "group1",
+      "localizations" : [
+        {
+          "description" : "Choose your subscription plan",
+          "displayName" : "Infinitum Clean Premium",
+          "locale" : "en_US"
+        }
+      ],
+      "name" : "Premium Subscriptions",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "9.99",
+          "familyShareable" : true,
+          "groupNumber" : 1,
+          "internalID" : "com.infinitumclean.premium.monthly",
+          "introductoryOffer" : {
+            "internalID" : "com.infinitumclean.premium.monthly.intro",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1M"
+          },
+          "localizations" : [
+            {
+              "description" : "Full access to all features",
+              "displayName" : "Monthly Premium",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.infinitumclean.premium.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly Subscription",
+          "subscriptionGroupID" : "group1",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "49.99",
+          "familyShareable" : true,
+          "groupNumber" : 1,
+          "internalID" : "com.infinitumclean.premium.yearly",
+          "introductoryOffer" : {
+            "internalID" : "com.infinitumclean.premium.yearly.intro",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1M"
+          },
+          "localizations" : [
+            {
+              "description" : "Full access to all features",
+              "displayName" : "Yearly Premium",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.infinitumclean.premium.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Yearly Subscription",
+          "subscriptionGroupID" : "group1",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+} 

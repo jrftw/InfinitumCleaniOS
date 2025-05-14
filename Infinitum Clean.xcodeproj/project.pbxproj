@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		79A72A7F2DD423D300A6209B /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 79A72A7E2DD423D300A6209B /* GoogleMobileAds */; };
+		79A72A8A2DD426DB00A6209B /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 79A72A892DD426DB00A6209B /* DeviceKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		79A72A512DD4226800A6209B /* Infinitum Clean.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Infinitum Clean.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79A72A7F2DD423D300A6209B /* GoogleMobileAds in Frameworks */,
+				79A72A8A2DD426DB00A6209B /* DeviceKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,8 @@
 			);
 			name = "Infinitum Clean";
 			packageProductDependencies = (
+				79A72A7E2DD423D300A6209B /* GoogleMobileAds */,
+				79A72A892DD426DB00A6209B /* DeviceKit */,
 			);
 			productName = "Infinitum Clean";
 			productReference = 79A72A512DD4226800A6209B /* Infinitum Clean.app */;
@@ -107,6 +116,10 @@
 			);
 			mainGroup = 79A72A482DD4226800A6209B;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				79A72A7D2DD423D300A6209B /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				79A72A882DD426DB00A6209B /* XCRemoteSwiftPackageReference "DeviceKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 79A72A522DD4226800A6209B /* Products */;
 			projectDirPath = "";
@@ -151,6 +164,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Infinitum Clean/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Infinitum Clean";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -191,6 +205,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Infinitum Clean/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Infinitum Clean";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -356,6 +371,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		79A72A7D2DD423D300A6209B /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.4.0;
+			};
+		};
+		79A72A882DD426DB00A6209B /* XCRemoteSwiftPackageReference "DeviceKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devicekit/DeviceKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		79A72A7E2DD423D300A6209B /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79A72A7D2DD423D300A6209B /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+		79A72A892DD426DB00A6209B /* DeviceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79A72A882DD426DB00A6209B /* XCRemoteSwiftPackageReference "DeviceKit" */;
+			productName = DeviceKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 79A72A492DD4226800A6209B /* Project object */;
 }
